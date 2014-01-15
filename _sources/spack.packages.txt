@@ -1,0 +1,75 @@
+packages Package
+================
+
+:mod:`packages` Package
+-----------------------
+
+.. automodule:: spack.packages
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`callpath` Module
+----------------------
+
+.. automodule:: spack.packages.callpath
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`cmake` Module
+-------------------
+
+.. automodule:: spack.packages.cmake
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`dyninst` Module
+---------------------
+
+.. automodule:: spack.packages.dyninst
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`libdwarf` Module
+----------------------
+
+.. automodule:: spack.packages.libdwarf
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`libelf` Module
+--------------------
+
+.. automodule:: spack.packages.libelf
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`libunwind` Module
+-----------------------
+
+.. automodule:: spack.packages.libunwind
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`mpich` Module
+-------------------
+
+.. automodule:: spack.packages.mpich
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`mpileaks` Module
+----------------------
+
+.. automodule:: spack.packages.mpileaks
+    :members:
+    :undoc-members:
+    :show-inheritance:
+

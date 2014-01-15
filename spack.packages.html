@@ -1,0 +1,644 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>packages Package &mdash; Spack 1.0 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:'',
+        VERSION:'1.0',
+        COLLAPSE_INDEX:false,
+        FILE_SUFFIX:'.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+    <link rel="top" title="Spack 1.0 documentation" href="index.html"/>
+        <link rel="up" title="spack Package" href="spack.html"/>
+        <link rel="next" title="test Package" href="spack.test.html"/>
+        <link rel="prev" title="compilers Package" href="spack.compilers.html"/> 
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="index.html" class="icon icon-home"> Spack</a>
+        <form id ="rtd-search-form" class="wy-form" action="search.html" method="get">
+  <input type="text" name="q" placeholder="Search docs" />
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix">
+        
+        
+            <ul>
+<li class="toctree-l1"><a class="reference internal" href="features.html">Feature Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="features.html#simple-package-installation">Simple package installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="features.html#custom-versions-configurations">Custom versions &amp; configurations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="features.html#customize-dependencies">Customize dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="features.html#non-destructive-installs">Non-destructive installs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="features.html#packages-can-peacefully-coexist">Packages can peacefully coexist</a></li>
+<li class="toctree-l2"><a class="reference internal" href="features.html#creating-packages-is-easy">Creating packages is easy</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#download">Download</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#install">Install</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="basic_usage.html">Basic usage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="basic_usage.html#getting-help">Getting Help</a></li>
+<li class="toctree-l2"><a class="reference internal" href="basic_usage.html#listing-available-packages">Listing available packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="basic_usage.html#seeing-installed-packages">Seeing installed packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="basic_usage.html#installing-and-uninstalling">Installing and uninstalling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="basic_usage.html#specs-dependencies">Specs &amp; Dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="basic_usage.html#virtual-dependencies">Virtual dependencies</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="packaging_guide.html">Packaging Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="packaging_guide.html#package-files">Package Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="packaging_guide.html#creating-packages">Creating Packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="packaging_guide.html#dependencies">Dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="packaging_guide.html#virtual-dependencies">Virtual dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="packaging_guide.html#abstract-concrete-specs">Abstract &amp; concrete specs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="packaging_guide.html#install-environment">Install environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="packaging_guide.html#implementing-the-install-method">Implementing the <tt class="docutils literal"><span class="pre">install</span></tt> method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="packaging_guide.html#prefix-objects">Prefix objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="packaging_guide.html#spec-objects">Spec objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="packaging_guide.html#shell-command-wrappers">Shell command wrappers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="packaging_guide.html#the-package-build-process">The package build process</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="site_configuration.html">Site-specific configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="site_configuration.html#temporary-space">Temporary space</a></li>
+<li class="toctree-l2"><a class="reference internal" href="site_configuration.html#concretization-policies">Concretization policies</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="developer_guide.html">Developer Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide.html#directory-structure">Directory Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide.html#code-structure">Code Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide.html#spec-objects">Spec objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide.html#package-objects">Package objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide.html#stage-objects">Stage objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide.html#writing-commands">Writing commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide.html#id3">Unit tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide.html#unit-testing">Unit testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide.html#developer-commands">Developer commands</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="spack.html">API Docs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="spack.html#id1"><tt class="docutils literal"><span class="pre">spack</span></tt> Package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spack.html#module-spack.architecture"><tt class="docutils literal"><span class="pre">architecture</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spack.html#module-spack.colify"><tt class="docutils literal"><span class="pre">colify</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spack.html#module-spack.color"><tt class="docutils literal"><span class="pre">color</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spack.html#module-spack.compilation"><tt class="docutils literal"><span class="pre">compilation</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spack.html#module-spack.concretize"><tt class="docutils literal"><span class="pre">concretize</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spack.html#module-spack.directory_layout"><tt class="docutils literal"><span class="pre">directory_layout</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spack.html#module-spack.error"><tt class="docutils literal"><span class="pre">error</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spack.html#module-spack.globals"><tt class="docutils literal"><span class="pre">globals</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spack.html#module-spack.multimethod"><tt class="docutils literal"><span class="pre">multimethod</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spack.html#module-spack.package"><tt class="docutils literal"><span class="pre">package</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spack.html#module-spack.parse"><tt class="docutils literal"><span class="pre">parse</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spack.html#module-spack.relations"><tt class="docutils literal"><span class="pre">relations</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spack.html#module-spack.spec"><tt class="docutils literal"><span class="pre">spec</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spack.html#module-spack.stage"><tt class="docutils literal"><span class="pre">stage</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spack.html#module-spack.tty"><tt class="docutils literal"><span class="pre">tty</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spack.html#module-spack.url"><tt class="docutils literal"><span class="pre">url</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spack.html#module-spack.validate"><tt class="docutils literal"><span class="pre">validate</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spack.html#module-spack.version"><tt class="docutils literal"><span class="pre">version</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spack.html#subpackages">Subpackages</a></li>
+</ul>
+</li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top">
+        <i data-toggle="wy-nav-top" class="icon icon-reorder"></i>
+        <a href="index.html">Spack</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <ul class="wy-breadcrumbs">
+  <li><a href="index.html">Docs</a> &raquo;</li>
+  <li><a href="">packages Package</a></li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="_sources/spack.packages.txt" rel="nofollow"> View page source</a>
+      
+    </li>
+</ul>
+<hr/>
+
+          
+  <div class="section" id="packages-package">
+<h1>packages Package<a class="headerlink" href="#packages-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id1">
+<h2><tt class="xref py py-mod docutils literal"><span class="pre">packages</span></tt> Package<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="module-spack.packages"></span><dl class="exception">
+<dt id="spack.packages.InvalidPackageNameError">
+<em class="property">exception </em><tt class="descclassname">spack.packages.</tt><tt class="descname">InvalidPackageNameError</tt><big>(</big><em>name</em><big>)</big><a class="headerlink" href="#spack.packages.InvalidPackageNameError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="spack.html#spack.error.SpackError" title="spack.error.SpackError"><tt class="xref py py-class docutils literal"><span class="pre">spack.error.SpackError</span></tt></a></p>
+<p>Raised when we encounter a bad package name.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="spack.packages.ProviderIndex">
+<em class="property">class </em><tt class="descclassname">spack.packages.</tt><tt class="descname">ProviderIndex</tt><big>(</big><em>specs</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#spack.packages.ProviderIndex" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>This is a dict of dicts used for finding providers of particular
+virtual dependencies. The dict of dicts looks like:</p>
+<dl class="docutils">
+<dt>{ vpkg name :</dt>
+<dd>{ full vpkg spec : package providing spec } }</dd>
+</dl>
+<p>Callers can use this to first find which packages provide a vpkg,
+then find a matching full spec.  e.g., in this scenario:</p>
+<dl class="docutils">
+<dt>{ &#8216;mpi&#8217; :</dt>
+<dd><dl class="first last docutils">
+<dt>{ mpi&#64;:1.1 <span class="classifier-delimiter">:</span> <span class="classifier">mpich,</span></dt>
+<dd>mpi&#64;:2.3 : <a class="reference external" href="mailto:mpich2&#37;&#52;&#48;1&#46;9">mpich2<span>&#64;</span>1<span>&#46;</span>9</a>: } }</dd>
+</dl>
+</dd>
+</dl>
+<p>Calling providers_for(spec) will find specs that provide a
+matching implementation of MPI.</p>
+<dl class="method">
+<dt id="spack.packages.ProviderIndex.providers_for">
+<tt class="descname">providers_for</tt><big>(</big><em>*vpkg_specs</em><big>)</big><a class="headerlink" href="#spack.packages.ProviderIndex.providers_for" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gives specs of all packages that provide virtual packages
+with the supplied specs.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="spack.packages.ProviderIndex.satisfies">
+<tt class="descname">satisfies</tt><big>(</big><em>other</em><big>)</big><a class="headerlink" href="#spack.packages.ProviderIndex.satisfies" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check that providers of virtual specs are compatible.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="spack.packages.ProviderIndex.update">
+<tt class="descname">update</tt><big>(</big><em>spec</em><big>)</big><a class="headerlink" href="#spack.packages.ProviderIndex.update" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="exception">
+<dt id="spack.packages.UnknownPackageError">
+<em class="property">exception </em><tt class="descclassname">spack.packages.</tt><tt class="descname">UnknownPackageError</tt><big>(</big><em>name</em><big>)</big><a class="headerlink" href="#spack.packages.UnknownPackageError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="spack.html#spack.error.SpackError" title="spack.error.SpackError"><tt class="xref py py-class docutils literal"><span class="pre">spack.error.SpackError</span></tt></a></p>
+<p>Raised when we encounter a package spack doesn&#8217;t have.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="spack.packages.all_package_names">
+<tt class="descclassname">spack.packages.</tt><tt class="descname">all_package_names</tt><big>(</big><big>)</big><a class="headerlink" href="#spack.packages.all_package_names" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generator function for all packages.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="spack.packages.all_packages">
+<tt class="descclassname">spack.packages.</tt><tt class="descname">all_packages</tt><big>(</big><big>)</big><a class="headerlink" href="#spack.packages.all_packages" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="spack.packages.class_name_for_package_name">
+<tt class="descclassname">spack.packages.</tt><tt class="descname">class_name_for_package_name</tt><big>(</big><em>pkg_name</em><big>)</big><a class="headerlink" href="#spack.packages.class_name_for_package_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a name for the class the package file should contain.  Note that
+conflicts don&#8217;t matter because the classes are in different modules.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="spack.packages.compute_dependents">
+<tt class="descclassname">spack.packages.</tt><tt class="descname">compute_dependents</tt><big>(</big><big>)</big><a class="headerlink" href="#spack.packages.compute_dependents" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads in all package files and sets dependence information on
+Package objects in memory.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="spack.packages.exists">
+<tt class="descclassname">spack.packages.</tt><tt class="descname">exists</tt><big>(</big><em>pkg_name</em><big>)</big><a class="headerlink" href="#spack.packages.exists" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether a package is concrete.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="spack.packages.filename_for_package_name">
+<tt class="descclassname">spack.packages.</tt><tt class="descname">filename_for_package_name</tt><big>(</big><em>pkg_name</em><big>)</big><a class="headerlink" href="#spack.packages.filename_for_package_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the filename where a package name should be stored.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="spack.packages.get">
+<tt class="descclassname">spack.packages.</tt><tt class="descname">get</tt><big>(</big><em>arg</em><big>)</big><a class="headerlink" href="#spack.packages.get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="spack.packages.get_class_for_package_name">
+<tt class="descclassname">spack.packages.</tt><tt class="descname">get_class_for_package_name</tt><big>(</big><em>pkg_name</em><big>)</big><a class="headerlink" href="#spack.packages.get_class_for_package_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="spack.packages.get_installed">
+<tt class="descclassname">spack.packages.</tt><tt class="descname">get_installed</tt><big>(</big><em>arg</em><big>)</big><a class="headerlink" href="#spack.packages.get_installed" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="spack.packages.graph_dependencies">
+<tt class="descclassname">spack.packages.</tt><tt class="descname">graph_dependencies</tt><big>(</big><em>out=&lt;open file '&lt;stdout&gt;'</em>, <em>mode 'w' at 0x1064de150&gt;</em><big>)</big><a class="headerlink" href="#spack.packages.graph_dependencies" title="Permalink to this definition">¶</a></dt>
+<dd><p>Print out a graph of all the dependencies between package.
+Graph is in dot format.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="spack.packages.installed_package_specs">
+<tt class="descclassname">spack.packages.</tt><tt class="descname">installed_package_specs</tt><big>(</big><big>)</big><a class="headerlink" href="#spack.packages.installed_package_specs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="spack.packages.packages_module">
+<tt class="descclassname">spack.packages.</tt><tt class="descname">packages_module</tt><big>(</big><big>)</big><a class="headerlink" href="#spack.packages.packages_module" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="spack.packages.providers_for">
+<tt class="descclassname">spack.packages.</tt><tt class="descname">providers_for</tt><big>(</big><em>arg</em><big>)</big><a class="headerlink" href="#spack.packages.providers_for" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="spack.packages.valid_package_name">
+<tt class="descclassname">spack.packages.</tt><tt class="descname">valid_package_name</tt><big>(</big><em>pkg_name</em><big>)</big><a class="headerlink" href="#spack.packages.valid_package_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="spack.packages.validate_package_name">
+<tt class="descclassname">spack.packages.</tt><tt class="descname">validate_package_name</tt><big>(</big><em>pkg_name</em><big>)</big><a class="headerlink" href="#spack.packages.validate_package_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-spack.packages.callpath">
+<span id="callpath-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">callpath</span></tt> Module<a class="headerlink" href="#module-spack.packages.callpath" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="spack.packages.callpath.Callpath">
+<em class="property">class </em><tt class="descclassname">spack.packages.callpath.</tt><tt class="descname">Callpath</tt><big>(</big><em>spec</em><big>)</big><a class="headerlink" href="#spack.packages.callpath.Callpath" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="spack.html#spack.package.Package" title="spack.package.Package"><tt class="xref py py-class docutils literal"><span class="pre">spack.package.Package</span></tt></a></p>
+<dl class="attribute">
+<dt id="spack.packages.callpath.Callpath.dependencies">
+<tt class="descname">dependencies</tt><em class="property"> = {'dyninst': dyninst, 'mpi': mpi}</em><a class="headerlink" href="#spack.packages.callpath.Callpath.dependencies" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="spack.packages.callpath.Callpath.homepage">
+<tt class="descname">homepage</tt><em class="property"> = 'https://github.com/tgamblin/callpath'</em><a class="headerlink" href="#spack.packages.callpath.Callpath.homepage" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="spack.packages.callpath.Callpath.install">
+<tt class="descname">install</tt><big>(</big><em>spec</em>, <em>prefix</em><big>)</big><a class="headerlink" href="#spack.packages.callpath.Callpath.install" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="spack.packages.callpath.Callpath.url">
+<tt class="descname">url</tt><em class="property"> = 'http://github.com/tgamblin/callpath-0.2.tar.gz'</em><a class="headerlink" href="#spack.packages.callpath.Callpath.url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-spack.packages.cmake">
+<span id="cmake-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">cmake</span></tt> Module<a class="headerlink" href="#module-spack.packages.cmake" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="spack.packages.cmake.Cmake">
+<em class="property">class </em><tt class="descclassname">spack.packages.cmake.</tt><tt class="descname">Cmake</tt><big>(</big><em>spec</em><big>)</big><a class="headerlink" href="#spack.packages.cmake.Cmake" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="spack.html#spack.package.Package" title="spack.package.Package"><tt class="xref py py-class docutils literal"><span class="pre">spack.package.Package</span></tt></a></p>
+<dl class="attribute">
+<dt id="spack.packages.cmake.Cmake.homepage">
+<tt class="descname">homepage</tt><em class="property"> = 'https://www.cmake.org'</em><a class="headerlink" href="#spack.packages.cmake.Cmake.homepage" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="spack.packages.cmake.Cmake.install">
+<tt class="descname">install</tt><big>(</big><em>spec</em>, <em>prefix</em><big>)</big><a class="headerlink" href="#spack.packages.cmake.Cmake.install" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="spack.packages.cmake.Cmake.url">
+<tt class="descname">url</tt><em class="property"> = 'http://www.cmake.org/files/v2.8/cmake-2.8.10.2.tar.gz'</em><a class="headerlink" href="#spack.packages.cmake.Cmake.url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="spack.packages.cmake.Cmake.versions">
+<tt class="descname">versions</tt><em class="property"> = {'2.8.10.2': '097278785da7182ec0aea8769d06860c'}</em><a class="headerlink" href="#spack.packages.cmake.Cmake.versions" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-spack.packages.dyninst">
+<span id="dyninst-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">dyninst</span></tt> Module<a class="headerlink" href="#module-spack.packages.dyninst" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="spack.packages.dyninst.Dyninst">
+<em class="property">class </em><tt class="descclassname">spack.packages.dyninst.</tt><tt class="descname">Dyninst</tt><big>(</big><em>spec</em><big>)</big><a class="headerlink" href="#spack.packages.dyninst.Dyninst" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="spack.html#spack.package.Package" title="spack.package.Package"><tt class="xref py py-class docutils literal"><span class="pre">spack.package.Package</span></tt></a></p>
+<dl class="attribute">
+<dt id="spack.packages.dyninst.Dyninst.dependencies">
+<tt class="descname">dependencies</tt><em class="property"> = {'libelf': libelf, 'libdwarf': libdwarf}</em><a class="headerlink" href="#spack.packages.dyninst.Dyninst.dependencies" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="spack.packages.dyninst.Dyninst.homepage">
+<tt class="descname">homepage</tt><em class="property"> = 'https://paradyn.org'</em><a class="headerlink" href="#spack.packages.dyninst.Dyninst.homepage" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="spack.packages.dyninst.Dyninst.install">
+<tt class="descname">install</tt><big>(</big><em>spec</em>, <em>prefix</em><big>)</big><a class="headerlink" href="#spack.packages.dyninst.Dyninst.install" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="spack.packages.dyninst.Dyninst.list_url">
+<tt class="descname">list_url</tt><em class="property"> = 'http://www.dyninst.org/downloads/dyninst-8.x'</em><a class="headerlink" href="#spack.packages.dyninst.Dyninst.list_url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="spack.packages.dyninst.Dyninst.url">
+<tt class="descname">url</tt><em class="property"> = 'http://www.dyninst.org/sites/default/files/downloads/dyninst/8.1.2/DyninstAPI-8.1.2.tgz'</em><a class="headerlink" href="#spack.packages.dyninst.Dyninst.url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="spack.packages.dyninst.Dyninst.versions">
+<tt class="descname">versions</tt><em class="property"> = {'8.1.1': '1f8743e3a5662b25ce64a7edf647e77d', '8.1.2': 'bf03b33375afa66fe0efa46ce3f4b17a'}</em><a class="headerlink" href="#spack.packages.dyninst.Dyninst.versions" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-spack.packages.libdwarf">
+<span id="libdwarf-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">libdwarf</span></tt> Module<a class="headerlink" href="#module-spack.packages.libdwarf" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="spack.packages.libdwarf.Libdwarf">
+<em class="property">class </em><tt class="descclassname">spack.packages.libdwarf.</tt><tt class="descname">Libdwarf</tt><big>(</big><em>spec</em><big>)</big><a class="headerlink" href="#spack.packages.libdwarf.Libdwarf" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="spack.html#spack.package.Package" title="spack.package.Package"><tt class="xref py py-class docutils literal"><span class="pre">spack.package.Package</span></tt></a></p>
+<dl class="method">
+<dt id="spack.packages.libdwarf.Libdwarf.clean">
+<tt class="descname">clean</tt><big>(</big><big>)</big><a class="headerlink" href="#spack.packages.libdwarf.Libdwarf.clean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="spack.packages.libdwarf.Libdwarf.dependencies">
+<tt class="descname">dependencies</tt><em class="property"> = {'libelf': libelf}</em><a class="headerlink" href="#spack.packages.libdwarf.Libdwarf.dependencies" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="spack.packages.libdwarf.Libdwarf.homepage">
+<tt class="descname">homepage</tt><em class="property"> = 'http://www.prevanders.net/dwarf.html'</em><a class="headerlink" href="#spack.packages.libdwarf.Libdwarf.homepage" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="spack.packages.libdwarf.Libdwarf.install">
+<tt class="descname">install</tt><big>(</big><em>spec</em>, <em>prefix</em><big>)</big><a class="headerlink" href="#spack.packages.libdwarf.Libdwarf.install" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="spack.packages.libdwarf.Libdwarf.list_url">
+<tt class="descname">list_url</tt><em class="property"> = 'http://www.prevanders.net/dwarf.html'</em><a class="headerlink" href="#spack.packages.libdwarf.Libdwarf.list_url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="spack.packages.libdwarf.Libdwarf.url">
+<tt class="descname">url</tt><em class="property"> = 'http://www.prevanders.net/libdwarf-20130729.tar.gz'</em><a class="headerlink" href="#spack.packages.libdwarf.Libdwarf.url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="spack.packages.libdwarf.Libdwarf.versions">
+<tt class="descname">versions</tt><em class="property"> = {'20130126': 'ded74a5e90edb5a12aac3c29d260c5db', '20130729': '4cc5e48693f7b93b7aa0261e63c0e21d', '20130207': '64b42692e947d5180e162e46c689dfbf'}</em><a class="headerlink" href="#spack.packages.libdwarf.Libdwarf.versions" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-spack.packages.libelf">
+<span id="libelf-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">libelf</span></tt> Module<a class="headerlink" href="#module-spack.packages.libelf" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="spack.packages.libelf.Libelf">
+<em class="property">class </em><tt class="descclassname">spack.packages.libelf.</tt><tt class="descname">Libelf</tt><big>(</big><em>spec</em><big>)</big><a class="headerlink" href="#spack.packages.libelf.Libelf" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="spack.html#spack.package.Package" title="spack.package.Package"><tt class="xref py py-class docutils literal"><span class="pre">spack.package.Package</span></tt></a></p>
+<p>libelf lets you read, modify or create ELF object files in an
+architecture-independent way. The library takes care of size
+and endian issues, e.g. you can process a file for SPARC
+processors on an Intel-based system.</p>
+<dl class="attribute">
+<dt id="spack.packages.libelf.Libelf.homepage">
+<tt class="descname">homepage</tt><em class="property"> = 'http://www.mr511.de/software/english.html'</em><a class="headerlink" href="#spack.packages.libelf.Libelf.homepage" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="spack.packages.libelf.Libelf.install">
+<tt class="descname">install</tt><big>(</big><em>spec</em>, <em>prefix</em><big>)</big><a class="headerlink" href="#spack.packages.libelf.Libelf.install" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="spack.packages.libelf.Libelf.url">
+<tt class="descname">url</tt><em class="property"> = 'http://www.mr511.de/software/libelf-0.8.13.tar.gz'</em><a class="headerlink" href="#spack.packages.libelf.Libelf.url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="spack.packages.libelf.Libelf.versions">
+<tt class="descname">versions</tt><em class="property"> = {'0.8.13': '4136d7b4c04df68b686570afa26988ac', '0.8.12': 'e21f8273d9f5f6d43a59878dc274fec7'}</em><a class="headerlink" href="#spack.packages.libelf.Libelf.versions" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-spack.packages.libunwind">
+<span id="libunwind-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">libunwind</span></tt> Module<a class="headerlink" href="#module-spack.packages.libunwind" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="spack.packages.libunwind.Libunwind">
+<em class="property">class </em><tt class="descclassname">spack.packages.libunwind.</tt><tt class="descname">Libunwind</tt><big>(</big><em>spec</em><big>)</big><a class="headerlink" href="#spack.packages.libunwind.Libunwind" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="spack.html#spack.package.Package" title="spack.package.Package"><tt class="xref py py-class docutils literal"><span class="pre">spack.package.Package</span></tt></a></p>
+<dl class="attribute">
+<dt id="spack.packages.libunwind.Libunwind.homepage">
+<tt class="descname">homepage</tt><em class="property"> = 'http://www.nongnu.org/libunwind/'</em><a class="headerlink" href="#spack.packages.libunwind.Libunwind.homepage" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="spack.packages.libunwind.Libunwind.install">
+<tt class="descname">install</tt><big>(</big><em>spec</em>, <em>prefix</em><big>)</big><a class="headerlink" href="#spack.packages.libunwind.Libunwind.install" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="spack.packages.libunwind.Libunwind.url">
+<tt class="descname">url</tt><em class="property"> = 'http://download.savannah.gnu.org/releases/libunwind/libunwind-1.1.tar.gz'</em><a class="headerlink" href="#spack.packages.libunwind.Libunwind.url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="spack.packages.libunwind.Libunwind.versions">
+<tt class="descname">versions</tt><em class="property"> = {'1.1': 'fb4ea2f6fbbe45bf032cd36e586883ce'}</em><a class="headerlink" href="#spack.packages.libunwind.Libunwind.versions" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-spack.packages.mpich">
+<span id="mpich-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">mpich</span></tt> Module<a class="headerlink" href="#module-spack.packages.mpich" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="spack.packages.mpich.Mpich">
+<em class="property">class </em><tt class="descclassname">spack.packages.mpich.</tt><tt class="descname">Mpich</tt><big>(</big><em>spec</em><big>)</big><a class="headerlink" href="#spack.packages.mpich.Mpich" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="spack.html#spack.package.Package" title="spack.package.Package"><tt class="xref py py-class docutils literal"><span class="pre">spack.package.Package</span></tt></a></p>
+<p>MPICH is a high performance and widely portable implementation of
+the Message Passing Interface (MPI) standard.</p>
+<dl class="attribute">
+<dt id="spack.packages.mpich.Mpich.homepage">
+<tt class="descname">homepage</tt><em class="property"> = 'http://www.mpich.org'</em><a class="headerlink" href="#spack.packages.mpich.Mpich.homepage" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="spack.packages.mpich.Mpich.install">
+<tt class="descname">install</tt><big>(</big><em>spec</em>, <em>prefix</em><big>)</big><a class="headerlink" href="#spack.packages.mpich.Mpich.install" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="spack.packages.mpich.Mpich.list_depth">
+<tt class="descname">list_depth</tt><em class="property"> = 2</em><a class="headerlink" href="#spack.packages.mpich.Mpich.list_depth" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="spack.packages.mpich.Mpich.list_url">
+<tt class="descname">list_url</tt><em class="property"> = 'http://www.mpich.org/static/downloads/'</em><a class="headerlink" href="#spack.packages.mpich.Mpich.list_url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="spack.packages.mpich.Mpich.provided">
+<tt class="descname">provided</tt><em class="property"> = {mpi&#64;:3: mpich&#64;3:, mpi&#64;:1: mpich&#64;1:}</em><a class="headerlink" href="#spack.packages.mpich.Mpich.provided" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="spack.packages.mpich.Mpich.url">
+<tt class="descname">url</tt><em class="property"> = 'http://www.mpich.org/static/downloads/3.0.4/mpich-3.0.4.tar.gz'</em><a class="headerlink" href="#spack.packages.mpich.Mpich.url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="spack.packages.mpich.Mpich.versions">
+<tt class="descname">versions</tt><em class="property"> = {'3.0.4': '9c5d5d4fe1e17dd12153f40bc5b6dbc0'}</em><a class="headerlink" href="#spack.packages.mpich.Mpich.versions" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-spack.packages.mpileaks">
+<span id="mpileaks-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">mpileaks</span></tt> Module<a class="headerlink" href="#module-spack.packages.mpileaks" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="spack.packages.mpileaks.Mpileaks">
+<em class="property">class </em><tt class="descclassname">spack.packages.mpileaks.</tt><tt class="descname">Mpileaks</tt><big>(</big><em>spec</em><big>)</big><a class="headerlink" href="#spack.packages.mpileaks.Mpileaks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="spack.html#spack.package.Package" title="spack.package.Package"><tt class="xref py py-class docutils literal"><span class="pre">spack.package.Package</span></tt></a></p>
+<dl class="attribute">
+<dt id="spack.packages.mpileaks.Mpileaks.dependencies">
+<tt class="descname">dependencies</tt><em class="property"> = {'callpath': callpath, 'mpi': mpi}</em><a class="headerlink" href="#spack.packages.mpileaks.Mpileaks.dependencies" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="spack.packages.mpileaks.Mpileaks.homepage">
+<tt class="descname">homepage</tt><em class="property"> = 'http://www.llnl.gov'</em><a class="headerlink" href="#spack.packages.mpileaks.Mpileaks.homepage" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="spack.packages.mpileaks.Mpileaks.install">
+<tt class="descname">install</tt><big>(</big><em>spec</em>, <em>prefix</em><big>)</big><a class="headerlink" href="#spack.packages.mpileaks.Mpileaks.install" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="spack.packages.mpileaks.Mpileaks.url">
+<tt class="descname">url</tt><em class="property"> = 'http://www.llnl.gov/mpileaks-1.0.tar.gz'</em><a class="headerlink" href="#spack.packages.mpileaks.Mpileaks.url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+          <footer>
+  
+    <div class="rst-footer-buttons">
+      
+        <a href="spack.test.html" class="btn btn-neutral float-right" title="test Package"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="spack.compilers.html" class="btn btn-neutral" title="compilers Package"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <p>
+    &copy; Copyright 2013,
+    <a href="https://scalability.llnl.gov/">Lawrence Livermore National Laboratory</a>.
+    <br/>
+    Written by Todd Gamblin, <a href="mailto:tgamblin@llnl.gov">tgamblin@llnl.gov</a>, LLNL-CODE-647188
+    <br/>
+    Last updated on Jan 15, 2014.
+  &nbsp;&nbsp;
+  <br/><a href="https://www.github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="http://readthedocs.org">Read the Docs</a>
+  </p>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+</body>
+</html>

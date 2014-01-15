@@ -1,0 +1,27 @@
+compilers Package
+=================
+
+:mod:`compilers` Package
+------------------------
+
+.. automodule:: spack.compilers
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`gcc` Module
+-----------------
+
+.. automodule:: spack.compilers.gcc
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`intel` Module
+-------------------
+
+.. automodule:: spack.compilers.intel
+    :members:
+    :undoc-members:
+    :show-inheritance:
+

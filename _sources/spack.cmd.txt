@@ -1,0 +1,195 @@
+cmd Package
+===========
+
+:mod:`cmd` Package
+------------------
+
+.. automodule:: spack.cmd
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`arch` Module
+------------------
+
+.. automodule:: spack.cmd.arch
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`bootstrap` Module
+-----------------------
+
+.. automodule:: spack.cmd.bootstrap
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`checksum` Module
+----------------------
+
+.. automodule:: spack.cmd.checksum
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`clean` Module
+-------------------
+
+.. automodule:: spack.cmd.clean
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`compilers` Module
+-----------------------
+
+.. automodule:: spack.cmd.compilers
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`create` Module
+--------------------
+
+.. automodule:: spack.cmd.create
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`doc` Module
+-----------------
+
+.. automodule:: spack.cmd.doc
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`edit` Module
+------------------
+
+.. automodule:: spack.cmd.edit
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`fetch` Module
+-------------------
+
+.. automodule:: spack.cmd.fetch
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`find` Module
+------------------
+
+.. automodule:: spack.cmd.find
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`graph` Module
+-------------------
+
+.. automodule:: spack.cmd.graph
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`help` Module
+------------------
+
+.. automodule:: spack.cmd.help
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`info` Module
+------------------
+
+.. automodule:: spack.cmd.info
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`install` Module
+---------------------
+
+.. automodule:: spack.cmd.install
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`list` Module
+------------------
+
+.. automodule:: spack.cmd.list
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`providers` Module
+-----------------------
+
+.. automodule:: spack.cmd.providers
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`purge` Module
+-------------------
+
+.. automodule:: spack.cmd.purge
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`python` Module
+--------------------
+
+.. automodule:: spack.cmd.python
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`spec` Module
+------------------
+
+.. automodule:: spack.cmd.spec
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`stage` Module
+-------------------
+
+.. automodule:: spack.cmd.stage
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`test` Module
+------------------
+
+.. automodule:: spack.cmd.test
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`uninstall` Module
+-----------------------
+
+.. automodule:: spack.cmd.uninstall
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`versions` Module
+----------------------
+
+.. automodule:: spack.cmd.versions
+    :members:
+    :undoc-members:
+    :show-inheritance:
+

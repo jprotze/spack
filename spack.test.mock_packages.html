@@ -1,0 +1,613 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>mock_packages Package &mdash; Spack 1.0 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:'',
+        VERSION:'1.0',
+        COLLAPSE_INDEX:false,
+        FILE_SUFFIX:'.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+    <link rel="top" title="Spack 1.0 documentation" href="index.html"/>
+        <link rel="up" title="test Package" href="spack.test.html"/>
+        <link rel="next" title="util Package" href="spack.util.html"/>
+        <link rel="prev" title="test Package" href="spack.test.html"/> 
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="index.html" class="icon icon-home"> Spack</a>
+        <form id ="rtd-search-form" class="wy-form" action="search.html" method="get">
+  <input type="text" name="q" placeholder="Search docs" />
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix">
+        
+        
+            <ul>
+<li class="toctree-l1"><a class="reference internal" href="features.html">Feature Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="features.html#simple-package-installation">Simple package installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="features.html#custom-versions-configurations">Custom versions &amp; configurations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="features.html#customize-dependencies">Customize dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="features.html#non-destructive-installs">Non-destructive installs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="features.html#packages-can-peacefully-coexist">Packages can peacefully coexist</a></li>
+<li class="toctree-l2"><a class="reference internal" href="features.html#creating-packages-is-easy">Creating packages is easy</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#download">Download</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#install">Install</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="basic_usage.html">Basic usage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="basic_usage.html#getting-help">Getting Help</a></li>
+<li class="toctree-l2"><a class="reference internal" href="basic_usage.html#listing-available-packages">Listing available packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="basic_usage.html#seeing-installed-packages">Seeing installed packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="basic_usage.html#installing-and-uninstalling">Installing and uninstalling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="basic_usage.html#specs-dependencies">Specs &amp; Dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="basic_usage.html#virtual-dependencies">Virtual dependencies</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="packaging_guide.html">Packaging Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="packaging_guide.html#package-files">Package Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="packaging_guide.html#creating-packages">Creating Packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="packaging_guide.html#dependencies">Dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="packaging_guide.html#virtual-dependencies">Virtual dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="packaging_guide.html#abstract-concrete-specs">Abstract &amp; concrete specs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="packaging_guide.html#install-environment">Install environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="packaging_guide.html#implementing-the-install-method">Implementing the <tt class="docutils literal"><span class="pre">install</span></tt> method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="packaging_guide.html#prefix-objects">Prefix objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="packaging_guide.html#spec-objects">Spec objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="packaging_guide.html#shell-command-wrappers">Shell command wrappers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="packaging_guide.html#the-package-build-process">The package build process</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="site_configuration.html">Site-specific configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="site_configuration.html#temporary-space">Temporary space</a></li>
+<li class="toctree-l2"><a class="reference internal" href="site_configuration.html#concretization-policies">Concretization policies</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="developer_guide.html">Developer Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide.html#directory-structure">Directory Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide.html#code-structure">Code Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide.html#spec-objects">Spec objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide.html#package-objects">Package objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide.html#stage-objects">Stage objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide.html#writing-commands">Writing commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide.html#id3">Unit tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide.html#unit-testing">Unit testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide.html#developer-commands">Developer commands</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="spack.html">API Docs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="spack.html#id1"><tt class="docutils literal"><span class="pre">spack</span></tt> Package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spack.html#module-spack.architecture"><tt class="docutils literal"><span class="pre">architecture</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spack.html#module-spack.colify"><tt class="docutils literal"><span class="pre">colify</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spack.html#module-spack.color"><tt class="docutils literal"><span class="pre">color</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spack.html#module-spack.compilation"><tt class="docutils literal"><span class="pre">compilation</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spack.html#module-spack.concretize"><tt class="docutils literal"><span class="pre">concretize</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spack.html#module-spack.directory_layout"><tt class="docutils literal"><span class="pre">directory_layout</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spack.html#module-spack.error"><tt class="docutils literal"><span class="pre">error</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spack.html#module-spack.globals"><tt class="docutils literal"><span class="pre">globals</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spack.html#module-spack.multimethod"><tt class="docutils literal"><span class="pre">multimethod</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spack.html#module-spack.package"><tt class="docutils literal"><span class="pre">package</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spack.html#module-spack.parse"><tt class="docutils literal"><span class="pre">parse</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spack.html#module-spack.relations"><tt class="docutils literal"><span class="pre">relations</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spack.html#module-spack.spec"><tt class="docutils literal"><span class="pre">spec</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spack.html#module-spack.stage"><tt class="docutils literal"><span class="pre">stage</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spack.html#module-spack.tty"><tt class="docutils literal"><span class="pre">tty</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spack.html#module-spack.url"><tt class="docutils literal"><span class="pre">url</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spack.html#module-spack.validate"><tt class="docutils literal"><span class="pre">validate</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spack.html#module-spack.version"><tt class="docutils literal"><span class="pre">version</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spack.html#subpackages">Subpackages</a></li>
+</ul>
+</li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top">
+        <i data-toggle="wy-nav-top" class="icon icon-reorder"></i>
+        <a href="index.html">Spack</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <ul class="wy-breadcrumbs">
+  <li><a href="index.html">Docs</a> &raquo;</li>
+  <li><a href="">mock_packages Package</a></li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="_sources/spack.test.mock_packages.txt" rel="nofollow"> View page source</a>
+      
+    </li>
+</ul>
+<hr/>
+
+          
+  <div class="section" id="mock-packages-package">
+<h1>mock_packages Package<a class="headerlink" href="#mock-packages-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-spack.test.mock_packages.callpath">
+<span id="callpath-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">callpath</span></tt> Module<a class="headerlink" href="#module-spack.test.mock_packages.callpath" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="spack.test.mock_packages.callpath.Callpath">
+<em class="property">class </em><tt class="descclassname">spack.test.mock_packages.callpath.</tt><tt class="descname">Callpath</tt><big>(</big><em>spec</em><big>)</big><a class="headerlink" href="#spack.test.mock_packages.callpath.Callpath" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="spack.html#spack.package.Package" title="spack.package.Package"><tt class="xref py py-class docutils literal"><span class="pre">spack.package.Package</span></tt></a></p>
+<dl class="attribute">
+<dt id="spack.test.mock_packages.callpath.Callpath.dependencies">
+<tt class="descname">dependencies</tt><em class="property"> = {'dyninst': dyninst, 'mpi': mpi}</em><a class="headerlink" href="#spack.test.mock_packages.callpath.Callpath.dependencies" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="spack.test.mock_packages.callpath.Callpath.homepage">
+<tt class="descname">homepage</tt><em class="property"> = 'https://github.com/tgamblin/callpath'</em><a class="headerlink" href="#spack.test.mock_packages.callpath.Callpath.homepage" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="spack.test.mock_packages.callpath.Callpath.install">
+<tt class="descname">install</tt><big>(</big><em>spec</em>, <em>prefix</em><big>)</big><a class="headerlink" href="#spack.test.mock_packages.callpath.Callpath.install" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="spack.test.mock_packages.callpath.Callpath.url">
+<tt class="descname">url</tt><em class="property"> = 'http://github.com/tgamblin/callpath-1.0.tar.gz'</em><a class="headerlink" href="#spack.test.mock_packages.callpath.Callpath.url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="spack.test.mock_packages.callpath.Callpath.versions">
+<tt class="descname">versions</tt><em class="property"> = {1.0: 'foobarbaz', 0.9: 'foobarbaz', 0.8: 'foobarbaz'}</em><a class="headerlink" href="#spack.test.mock_packages.callpath.Callpath.versions" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-spack.test.mock_packages.dyninst">
+<span id="dyninst-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">dyninst</span></tt> Module<a class="headerlink" href="#module-spack.test.mock_packages.dyninst" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="spack.test.mock_packages.dyninst.Dyninst">
+<em class="property">class </em><tt class="descclassname">spack.test.mock_packages.dyninst.</tt><tt class="descname">Dyninst</tt><big>(</big><em>spec</em><big>)</big><a class="headerlink" href="#spack.test.mock_packages.dyninst.Dyninst" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="spack.html#spack.package.Package" title="spack.package.Package"><tt class="xref py py-class docutils literal"><span class="pre">spack.package.Package</span></tt></a></p>
+<dl class="attribute">
+<dt id="spack.test.mock_packages.dyninst.Dyninst.dependencies">
+<tt class="descname">dependencies</tt><em class="property"> = {'libelf': libelf, 'libdwarf': libdwarf}</em><a class="headerlink" href="#spack.test.mock_packages.dyninst.Dyninst.dependencies" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="spack.test.mock_packages.dyninst.Dyninst.homepage">
+<tt class="descname">homepage</tt><em class="property"> = 'https://paradyn.org'</em><a class="headerlink" href="#spack.test.mock_packages.dyninst.Dyninst.homepage" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="spack.test.mock_packages.dyninst.Dyninst.install">
+<tt class="descname">install</tt><big>(</big><em>spec</em>, <em>prefix</em><big>)</big><a class="headerlink" href="#spack.test.mock_packages.dyninst.Dyninst.install" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="spack.test.mock_packages.dyninst.Dyninst.list_url">
+<tt class="descname">list_url</tt><em class="property"> = 'http://www.dyninst.org/downloads/dyninst-8.x'</em><a class="headerlink" href="#spack.test.mock_packages.dyninst.Dyninst.list_url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="spack.test.mock_packages.dyninst.Dyninst.url">
+<tt class="descname">url</tt><em class="property"> = 'http://www.dyninst.org/sites/default/files/downloads/dyninst/8.1.2/DyninstAPI-8.1.2.tgz'</em><a class="headerlink" href="#spack.test.mock_packages.dyninst.Dyninst.url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="spack.test.mock_packages.dyninst.Dyninst.versions">
+<tt class="descname">versions</tt><em class="property"> = {'8.1.1': '1f8743e3a5662b25ce64a7edf647e77d', '8.1.2': 'bf03b33375afa66fe0efa46ce3f4b17a'}</em><a class="headerlink" href="#spack.test.mock_packages.dyninst.Dyninst.versions" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-spack.test.mock_packages.fake">
+<span id="fake-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">fake</span></tt> Module<a class="headerlink" href="#module-spack.test.mock_packages.fake" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="spack.test.mock_packages.fake.Fake">
+<em class="property">class </em><tt class="descclassname">spack.test.mock_packages.fake.</tt><tt class="descname">Fake</tt><big>(</big><em>spec</em><big>)</big><a class="headerlink" href="#spack.test.mock_packages.fake.Fake" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="spack.html#spack.package.Package" title="spack.package.Package"><tt class="xref py py-class docutils literal"><span class="pre">spack.package.Package</span></tt></a></p>
+<dl class="attribute">
+<dt id="spack.test.mock_packages.fake.Fake.homepage">
+<tt class="descname">homepage</tt><em class="property"> = 'http://www.fake-spack-example.org'</em><a class="headerlink" href="#spack.test.mock_packages.fake.Fake.homepage" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="spack.test.mock_packages.fake.Fake.install">
+<tt class="descname">install</tt><big>(</big><em>spec</em>, <em>prefix</em><big>)</big><a class="headerlink" href="#spack.test.mock_packages.fake.Fake.install" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="spack.test.mock_packages.fake.Fake.url">
+<tt class="descname">url</tt><em class="property"> = 'http://www.fake-spack-example.org/downloads/fake-1.0.tar.gz'</em><a class="headerlink" href="#spack.test.mock_packages.fake.Fake.url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="spack.test.mock_packages.fake.Fake.versions">
+<tt class="descname">versions</tt><em class="property"> = {'1.0': 'foobarbaz'}</em><a class="headerlink" href="#spack.test.mock_packages.fake.Fake.versions" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-spack.test.mock_packages.libdwarf">
+<span id="libdwarf-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">libdwarf</span></tt> Module<a class="headerlink" href="#module-spack.test.mock_packages.libdwarf" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="spack.test.mock_packages.libdwarf.Libdwarf">
+<em class="property">class </em><tt class="descclassname">spack.test.mock_packages.libdwarf.</tt><tt class="descname">Libdwarf</tt><big>(</big><em>spec</em><big>)</big><a class="headerlink" href="#spack.test.mock_packages.libdwarf.Libdwarf" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="spack.html#spack.package.Package" title="spack.package.Package"><tt class="xref py py-class docutils literal"><span class="pre">spack.package.Package</span></tt></a></p>
+<dl class="attribute">
+<dt id="spack.test.mock_packages.libdwarf.Libdwarf.dependencies">
+<tt class="descname">dependencies</tt><em class="property"> = {'libelf': libelf}</em><a class="headerlink" href="#spack.test.mock_packages.libdwarf.Libdwarf.dependencies" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="spack.test.mock_packages.libdwarf.Libdwarf.homepage">
+<tt class="descname">homepage</tt><em class="property"> = 'http://www.prevanders.net/dwarf.html'</em><a class="headerlink" href="#spack.test.mock_packages.libdwarf.Libdwarf.homepage" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="spack.test.mock_packages.libdwarf.Libdwarf.install">
+<tt class="descname">install</tt><big>(</big><em>spec</em>, <em>prefix</em><big>)</big><a class="headerlink" href="#spack.test.mock_packages.libdwarf.Libdwarf.install" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="spack.test.mock_packages.libdwarf.Libdwarf.list_url">
+<tt class="descname">list_url</tt><em class="property"> = 'http://www.prevanders.net/dwarf.html'</em><a class="headerlink" href="#spack.test.mock_packages.libdwarf.Libdwarf.list_url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="spack.test.mock_packages.libdwarf.Libdwarf.url">
+<tt class="descname">url</tt><em class="property"> = 'http://www.prevanders.net/libdwarf-20130729.tar.gz'</em><a class="headerlink" href="#spack.test.mock_packages.libdwarf.Libdwarf.url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="spack.test.mock_packages.libdwarf.Libdwarf.versions">
+<tt class="descname">versions</tt><em class="property"> = {20130729: '64b42692e947d5180e162e46c689dfbf', 20070703: 'foobarbaz', 20111030: 'foobarbaz', 20130207: 'foobarbaz'}</em><a class="headerlink" href="#spack.test.mock_packages.libdwarf.Libdwarf.versions" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-spack.test.mock_packages.libelf">
+<span id="libelf-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">libelf</span></tt> Module<a class="headerlink" href="#module-spack.test.mock_packages.libelf" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="spack.test.mock_packages.libelf.Libelf">
+<em class="property">class </em><tt class="descclassname">spack.test.mock_packages.libelf.</tt><tt class="descname">Libelf</tt><big>(</big><em>spec</em><big>)</big><a class="headerlink" href="#spack.test.mock_packages.libelf.Libelf" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="spack.html#spack.package.Package" title="spack.package.Package"><tt class="xref py py-class docutils literal"><span class="pre">spack.package.Package</span></tt></a></p>
+<dl class="attribute">
+<dt id="spack.test.mock_packages.libelf.Libelf.homepage">
+<tt class="descname">homepage</tt><em class="property"> = 'http://www.mr511.de/software/english.html'</em><a class="headerlink" href="#spack.test.mock_packages.libelf.Libelf.homepage" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="spack.test.mock_packages.libelf.Libelf.install">
+<tt class="descname">install</tt><big>(</big><em>spec</em>, <em>prefix</em><big>)</big><a class="headerlink" href="#spack.test.mock_packages.libelf.Libelf.install" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="spack.test.mock_packages.libelf.Libelf.url">
+<tt class="descname">url</tt><em class="property"> = 'http://www.mr511.de/software/libelf-0.8.13.tar.gz'</em><a class="headerlink" href="#spack.test.mock_packages.libelf.Libelf.url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="spack.test.mock_packages.libelf.Libelf.versions">
+<tt class="descname">versions</tt><em class="property"> = {'0.8.10': '9db4d36c283d9790d8fa7df1f4d7b4d9', '0.8.13': '4136d7b4c04df68b686570afa26988ac', '0.8.12': 'e21f8273d9f5f6d43a59878dc274fec7'}</em><a class="headerlink" href="#spack.test.mock_packages.libelf.Libelf.versions" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-spack.test.mock_packages.mpich">
+<span id="mpich-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">mpich</span></tt> Module<a class="headerlink" href="#module-spack.test.mock_packages.mpich" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="spack.test.mock_packages.mpich.Mpich">
+<em class="property">class </em><tt class="descclassname">spack.test.mock_packages.mpich.</tt><tt class="descname">Mpich</tt><big>(</big><em>spec</em><big>)</big><a class="headerlink" href="#spack.test.mock_packages.mpich.Mpich" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="spack.html#spack.package.Package" title="spack.package.Package"><tt class="xref py py-class docutils literal"><span class="pre">spack.package.Package</span></tt></a></p>
+<dl class="attribute">
+<dt id="spack.test.mock_packages.mpich.Mpich.homepage">
+<tt class="descname">homepage</tt><em class="property"> = 'http://www.mpich.org'</em><a class="headerlink" href="#spack.test.mock_packages.mpich.Mpich.homepage" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="spack.test.mock_packages.mpich.Mpich.install">
+<tt class="descname">install</tt><big>(</big><em>spec</em>, <em>prefix</em><big>)</big><a class="headerlink" href="#spack.test.mock_packages.mpich.Mpich.install" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="spack.test.mock_packages.mpich.Mpich.list_depth">
+<tt class="descname">list_depth</tt><em class="property"> = 2</em><a class="headerlink" href="#spack.test.mock_packages.mpich.Mpich.list_depth" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="spack.test.mock_packages.mpich.Mpich.list_url">
+<tt class="descname">list_url</tt><em class="property"> = 'http://www.mpich.org/static/downloads/'</em><a class="headerlink" href="#spack.test.mock_packages.mpich.Mpich.list_url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="spack.test.mock_packages.mpich.Mpich.provided">
+<tt class="descname">provided</tt><em class="property"> = {mpi&#64;:3: mpich&#64;3:, mpi&#64;:1: mpich&#64;1:}</em><a class="headerlink" href="#spack.test.mock_packages.mpich.Mpich.provided" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="spack.test.mock_packages.mpich.Mpich.url">
+<tt class="descname">url</tt><em class="property"> = 'http://www.mpich.org/static/downloads/3.0.4/mpich-3.0.4.tar.gz'</em><a class="headerlink" href="#spack.test.mock_packages.mpich.Mpich.url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="spack.test.mock_packages.mpich.Mpich.versions">
+<tt class="descname">versions</tt><em class="property"> = {'3.0.4': '9c5d5d4fe1e17dd12153f40bc5b6dbc0', '3.0.2': 'foobarbaz', '3.0.3': 'foobarbaz', '3.0': 'foobarbaz', '3.0.1': 'foobarbaz'}</em><a class="headerlink" href="#spack.test.mock_packages.mpich.Mpich.versions" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-spack.test.mock_packages.mpich2">
+<span id="mpich2-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">mpich2</span></tt> Module<a class="headerlink" href="#module-spack.test.mock_packages.mpich2" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="spack.test.mock_packages.mpich2.Mpich2">
+<em class="property">class </em><tt class="descclassname">spack.test.mock_packages.mpich2.</tt><tt class="descname">Mpich2</tt><big>(</big><em>spec</em><big>)</big><a class="headerlink" href="#spack.test.mock_packages.mpich2.Mpich2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="spack.html#spack.package.Package" title="spack.package.Package"><tt class="xref py py-class docutils literal"><span class="pre">spack.package.Package</span></tt></a></p>
+<dl class="attribute">
+<dt id="spack.test.mock_packages.mpich2.Mpich2.homepage">
+<tt class="descname">homepage</tt><em class="property"> = 'http://www.mpich.org'</em><a class="headerlink" href="#spack.test.mock_packages.mpich2.Mpich2.homepage" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="spack.test.mock_packages.mpich2.Mpich2.install">
+<tt class="descname">install</tt><big>(</big><em>spec</em>, <em>prefix</em><big>)</big><a class="headerlink" href="#spack.test.mock_packages.mpich2.Mpich2.install" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="spack.test.mock_packages.mpich2.Mpich2.list_depth">
+<tt class="descname">list_depth</tt><em class="property"> = 2</em><a class="headerlink" href="#spack.test.mock_packages.mpich2.Mpich2.list_depth" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="spack.test.mock_packages.mpich2.Mpich2.list_url">
+<tt class="descname">list_url</tt><em class="property"> = 'http://www.mpich.org/static/downloads/'</em><a class="headerlink" href="#spack.test.mock_packages.mpich2.Mpich2.list_url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="spack.test.mock_packages.mpich2.Mpich2.provided">
+<tt class="descname">provided</tt><em class="property"> = {mpi&#64;:2.0: mpich2, mpi&#64;:2.1: mpich2&#64;1.1:, mpi&#64;:2.2: mpich2&#64;1.2:}</em><a class="headerlink" href="#spack.test.mock_packages.mpich2.Mpich2.provided" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="spack.test.mock_packages.mpich2.Mpich2.url">
+<tt class="descname">url</tt><em class="property"> = 'http://www.mpich.org/static/downloads/1.5/mpich2-1.5.tar.gz'</em><a class="headerlink" href="#spack.test.mock_packages.mpich2.Mpich2.url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="spack.test.mock_packages.mpich2.Mpich2.versions">
+<tt class="descname">versions</tt><em class="property"> = {'1.4': 'foobarbaz', '1.5': '9c5d5d4fe1e17dd12153f40bc5b6dbc0', '1.0': 'foobarbaz', '1.1': 'foobarbaz', '1.2': 'foobarbaz', '1.3': 'foobarbaz'}</em><a class="headerlink" href="#spack.test.mock_packages.mpich2.Mpich2.versions" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-spack.test.mock_packages.mpileaks">
+<span id="mpileaks-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">mpileaks</span></tt> Module<a class="headerlink" href="#module-spack.test.mock_packages.mpileaks" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="spack.test.mock_packages.mpileaks.Mpileaks">
+<em class="property">class </em><tt class="descclassname">spack.test.mock_packages.mpileaks.</tt><tt class="descname">Mpileaks</tt><big>(</big><em>spec</em><big>)</big><a class="headerlink" href="#spack.test.mock_packages.mpileaks.Mpileaks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="spack.html#spack.package.Package" title="spack.package.Package"><tt class="xref py py-class docutils literal"><span class="pre">spack.package.Package</span></tt></a></p>
+<dl class="attribute">
+<dt id="spack.test.mock_packages.mpileaks.Mpileaks.dependencies">
+<tt class="descname">dependencies</tt><em class="property"> = {'callpath': callpath, 'mpi': mpi}</em><a class="headerlink" href="#spack.test.mock_packages.mpileaks.Mpileaks.dependencies" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="spack.test.mock_packages.mpileaks.Mpileaks.homepage">
+<tt class="descname">homepage</tt><em class="property"> = 'http://www.llnl.gov'</em><a class="headerlink" href="#spack.test.mock_packages.mpileaks.Mpileaks.homepage" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="spack.test.mock_packages.mpileaks.Mpileaks.install">
+<tt class="descname">install</tt><big>(</big><em>spec</em>, <em>prefix</em><big>)</big><a class="headerlink" href="#spack.test.mock_packages.mpileaks.Mpileaks.install" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="spack.test.mock_packages.mpileaks.Mpileaks.url">
+<tt class="descname">url</tt><em class="property"> = 'http://www.llnl.gov/mpileaks-1.0.tar.gz'</em><a class="headerlink" href="#spack.test.mock_packages.mpileaks.Mpileaks.url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="spack.test.mock_packages.mpileaks.Mpileaks.versions">
+<tt class="descname">versions</tt><em class="property"> = {1.0: 'foobarbaz', 2.1: 'foobarbaz', 2.2: 'foobarbaz', 2.3: 'foobarbaz'}</em><a class="headerlink" href="#spack.test.mock_packages.mpileaks.Mpileaks.versions" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-spack.test.mock_packages.multimethod">
+<span id="multimethod-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">multimethod</span></tt> Module<a class="headerlink" href="#module-spack.test.mock_packages.multimethod" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="spack.test.mock_packages.multimethod.Multimethod">
+<em class="property">class </em><tt class="descclassname">spack.test.mock_packages.multimethod.</tt><tt class="descname">Multimethod</tt><big>(</big><em>spec</em><big>)</big><a class="headerlink" href="#spack.test.mock_packages.multimethod.Multimethod" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="spack.html#spack.package.Package" title="spack.package.Package"><tt class="xref py py-class docutils literal"><span class="pre">spack.package.Package</span></tt></a></p>
+<p>This package is designed for use with Spack&#8217;s multimethod test.
+It has a bunch of test cases for the &#64;when decorator that the
+test uses.</p>
+<dl class="attribute">
+<dt id="spack.test.mock_packages.multimethod.Multimethod.different_by_architecture">
+<tt class="descname">different_by_architecture</tt><em class="property"> = &lt;functools.partial object at 0x10922f0a8&gt;</em><a class="headerlink" href="#spack.test.mock_packages.multimethod.Multimethod.different_by_architecture" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="spack.test.mock_packages.multimethod.Multimethod.different_by_dep">
+<tt class="descname">different_by_dep</tt><em class="property"> = &lt;functools.partial object at 0x10922f158&gt;</em><a class="headerlink" href="#spack.test.mock_packages.multimethod.Multimethod.different_by_dep" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="spack.test.mock_packages.multimethod.Multimethod.different_by_virtual_dep">
+<tt class="descname">different_by_virtual_dep</tt><em class="property"> = &lt;functools.partial object at 0x10922f1b0&gt;</em><a class="headerlink" href="#spack.test.mock_packages.multimethod.Multimethod.different_by_virtual_dep" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="spack.test.mock_packages.multimethod.Multimethod.has_a_default">
+<tt class="descname">has_a_default</tt><em class="property"> = &lt;functools.partial object at 0x10922f208&gt;</em><a class="headerlink" href="#spack.test.mock_packages.multimethod.Multimethod.has_a_default" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="spack.test.mock_packages.multimethod.Multimethod.homepage">
+<tt class="descname">homepage</tt><em class="property"> = 'http://www.example.com/'</em><a class="headerlink" href="#spack.test.mock_packages.multimethod.Multimethod.homepage" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="spack.test.mock_packages.multimethod.Multimethod.mpi_version">
+<tt class="descname">mpi_version</tt><em class="property"> = &lt;functools.partial object at 0x10922f100&gt;</em><a class="headerlink" href="#spack.test.mock_packages.multimethod.Multimethod.mpi_version" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="spack.test.mock_packages.multimethod.Multimethod.no_version_2">
+<tt class="descname">no_version_2</tt><em class="property"> = &lt;functools.partial object at 0x10922f310&gt;</em><a class="headerlink" href="#spack.test.mock_packages.multimethod.Multimethod.no_version_2" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="spack.test.mock_packages.multimethod.Multimethod.url">
+<tt class="descname">url</tt><em class="property"> = 'http://www.example.com/example-1.0.tar.gz'</em><a class="headerlink" href="#spack.test.mock_packages.multimethod.Multimethod.url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="spack.test.mock_packages.multimethod.Multimethod.version_overlap">
+<tt class="descname">version_overlap</tt><em class="property"> = &lt;functools.partial object at 0x10922f368&gt;</em><a class="headerlink" href="#spack.test.mock_packages.multimethod.Multimethod.version_overlap" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-spack.test.mock_packages.zmpi">
+<span id="zmpi-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">zmpi</span></tt> Module<a class="headerlink" href="#module-spack.test.mock_packages.zmpi" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="spack.test.mock_packages.zmpi.Zmpi">
+<em class="property">class </em><tt class="descclassname">spack.test.mock_packages.zmpi.</tt><tt class="descname">Zmpi</tt><big>(</big><em>spec</em><big>)</big><a class="headerlink" href="#spack.test.mock_packages.zmpi.Zmpi" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="spack.html#spack.package.Package" title="spack.package.Package"><tt class="xref py py-class docutils literal"><span class="pre">spack.package.Package</span></tt></a></p>
+<p>This is a fake MPI package used to demonstrate virtual package providers
+with dependencies.</p>
+<dl class="attribute">
+<dt id="spack.test.mock_packages.zmpi.Zmpi.dependencies">
+<tt class="descname">dependencies</tt><em class="property"> = {'fake': fake}</em><a class="headerlink" href="#spack.test.mock_packages.zmpi.Zmpi.dependencies" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="spack.test.mock_packages.zmpi.Zmpi.homepage">
+<tt class="descname">homepage</tt><em class="property"> = 'http://www.spack-fake-zmpi.org'</em><a class="headerlink" href="#spack.test.mock_packages.zmpi.Zmpi.homepage" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="spack.test.mock_packages.zmpi.Zmpi.install">
+<tt class="descname">install</tt><big>(</big><em>spec</em>, <em>prefix</em><big>)</big><a class="headerlink" href="#spack.test.mock_packages.zmpi.Zmpi.install" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="spack.test.mock_packages.zmpi.Zmpi.provided">
+<tt class="descname">provided</tt><em class="property"> = {mpi&#64;:10.0: zmpi}</em><a class="headerlink" href="#spack.test.mock_packages.zmpi.Zmpi.provided" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="spack.test.mock_packages.zmpi.Zmpi.url">
+<tt class="descname">url</tt><em class="property"> = 'http://www.spack-fake-zmpi.org/downloads/zmpi-1.0.tar.gz'</em><a class="headerlink" href="#spack.test.mock_packages.zmpi.Zmpi.url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="spack.test.mock_packages.zmpi.Zmpi.versions">
+<tt class="descname">versions</tt><em class="property"> = {'1.0': 'foobarbaz'}</em><a class="headerlink" href="#spack.test.mock_packages.zmpi.Zmpi.versions" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+          <footer>
+  
+    <div class="rst-footer-buttons">
+      
+        <a href="spack.util.html" class="btn btn-neutral float-right" title="util Package"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="spack.test.html" class="btn btn-neutral" title="test Package"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <p>
+    &copy; Copyright 2013,
+    <a href="https://scalability.llnl.gov/">Lawrence Livermore National Laboratory</a>.
+    <br/>
+    Written by Todd Gamblin, <a href="mailto:tgamblin@llnl.gov">tgamblin@llnl.gov</a>, LLNL-CODE-647188
+    <br/>
+    Last updated on Jan 15, 2014.
+  &nbsp;&nbsp;
+  <br/><a href="https://www.github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="http://readthedocs.org">Read the Docs</a>
+  </p>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+</body>
+</html>

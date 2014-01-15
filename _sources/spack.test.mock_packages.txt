@@ -1,0 +1,83 @@
+mock_packages Package
+=====================
+
+:mod:`callpath` Module
+----------------------
+
+.. automodule:: spack.test.mock_packages.callpath
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`dyninst` Module
+---------------------
+
+.. automodule:: spack.test.mock_packages.dyninst
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`fake` Module
+------------------
+
+.. automodule:: spack.test.mock_packages.fake
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`libdwarf` Module
+----------------------
+
+.. automodule:: spack.test.mock_packages.libdwarf
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`libelf` Module
+--------------------
+
+.. automodule:: spack.test.mock_packages.libelf
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`mpich` Module
+-------------------
+
+.. automodule:: spack.test.mock_packages.mpich
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`mpich2` Module
+--------------------
+
+.. automodule:: spack.test.mock_packages.mpich2
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`mpileaks` Module
+----------------------
+
+.. automodule:: spack.test.mock_packages.mpileaks
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`multimethod` Module
+-------------------------
+
+.. automodule:: spack.test.mock_packages.multimethod
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`zmpi` Module
+------------------
+
+.. automodule:: spack.test.mock_packages.zmpi
+    :members:
+    :undoc-members:
+    :show-inheritance:
+

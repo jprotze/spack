@@ -1,0 +1,91 @@
+util Package
+============
+
+:mod:`compression` Module
+-------------------------
+
+.. automodule:: spack.util.compression
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`crypto` Module
+--------------------
+
+.. automodule:: spack.util.crypto
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`environment` Module
+-------------------------
+
+.. automodule:: spack.util.environment
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`executable` Module
+------------------------
+
+.. automodule:: spack.util.executable
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`filesystem` Module
+------------------------
+
+.. automodule:: spack.util.filesystem
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`lang` Module
+------------------
+
+.. automodule:: spack.util.lang
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`none_high` Module
+-----------------------
+
+.. automodule:: spack.util.none_high
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`none_low` Module
+----------------------
+
+.. automodule:: spack.util.none_low
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`prefix` Module
+--------------------
+
+.. automodule:: spack.util.prefix
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`string` Module
+--------------------
+
+.. automodule:: spack.util.string
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`web` Module
+-----------------
+
+.. automodule:: spack.util.web
+    :members:
+    :undoc-members:
+    :show-inheritance:
+

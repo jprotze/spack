@@ -1,0 +1,90 @@
+test Package
+============
+
+:mod:`test` Package
+-------------------
+
+.. automodule:: spack.test
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`concretize` Module
+------------------------
+
+.. automodule:: spack.test.concretize
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`mock_packages_test` Module
+--------------------------------
+
+.. automodule:: spack.test.mock_packages_test
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`multimethod` Module
+-------------------------
+
+.. automodule:: spack.test.multimethod
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`spec_dag` Module
+----------------------
+
+.. automodule:: spack.test.spec_dag
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`spec_semantics` Module
+----------------------------
+
+.. automodule:: spack.test.spec_semantics
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`spec_syntax` Module
+-------------------------
+
+.. automodule:: spack.test.spec_syntax
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`stage` Module
+-------------------
+
+.. automodule:: spack.test.stage
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`url_parse` Module
+-----------------------
+
+.. automodule:: spack.test.url_parse
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`versions` Module
+----------------------
+
+.. automodule:: spack.test.versions
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+Subpackages
+-----------
+
+.. toctree::
+
+    spack.test.mock_packages
+

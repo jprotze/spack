@@ -1,0 +1,166 @@
+spack Package
+=============
+
+:mod:`spack` Package
+--------------------
+
+.. automodule:: spack.__init__
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`architecture` Module
+--------------------------
+
+.. automodule:: spack.architecture
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`colify` Module
+--------------------
+
+.. automodule:: spack.colify
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`color` Module
+-------------------
+
+.. automodule:: spack.color
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`compilation` Module
+-------------------------
+
+.. automodule:: spack.compilation
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`concretize` Module
+------------------------
+
+.. automodule:: spack.concretize
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`directory_layout` Module
+------------------------------
+
+.. automodule:: spack.directory_layout
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`error` Module
+-------------------
+
+.. automodule:: spack.error
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`globals` Module
+---------------------
+
+.. automodule:: spack.globals
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`multimethod` Module
+-------------------------
+
+.. automodule:: spack.multimethod
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`package` Module
+---------------------
+
+.. automodule:: spack.package
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`parse` Module
+-------------------
+
+.. automodule:: spack.parse
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`relations` Module
+-----------------------
+
+.. automodule:: spack.relations
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`spec` Module
+------------------
+
+.. automodule:: spack.spec
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`stage` Module
+-------------------
+
+.. automodule:: spack.stage
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`tty` Module
+-----------------
+
+.. automodule:: spack.tty
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`url` Module
+-----------------
+
+.. automodule:: spack.url
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`validate` Module
+----------------------
+
+.. automodule:: spack.validate
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`version` Module
+---------------------
+
+.. automodule:: spack.version
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+Subpackages
+-----------
+
+.. toctree::
+
+    spack.cmd
+    spack.compilers
+    spack.packages
+    spack.test
+    spack.util
+
